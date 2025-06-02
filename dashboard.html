@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CryptoVault Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>CryptoVault Pro</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <nav class="main-nav">
+                    <a href="dashboard.html" class="nav-item active">Dashboard</a>
+                    <a href="markets.html" class="nav-item">Markets</a>
+                    <a href="portfolio.html" class="nav-item">Portfolio</a>
+                    <a href="analytics.html" class="nav-item">Analytics</a>
+                    <a href="faq.html" class="nav-item">FAQ</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="vip-badge" id="userVipBadge">VIP 5</div>
+                    <span class="username" id="currentUser">Brown68</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <a href="javascript:logout()" class="logout-btn">
+    <i class="fas fa-sign-out-alt"></i>
+</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+        <!-- Balance Overview -->
+        <div class="balance-overview">
+            <div class="balance-card main-balance">
+                <div class="balance-header">
+                    <h3>Total Portfolio Value</h3>
+                    <div class="balance-change positive">
+                        <i class="fas fa-arrow-up"></i>
+                        <span>+12.45%</span>
+                    </div>
+                </div>
+                <div class="balance-amount">
+                    <span class="currency">$</span>
+                    <span class="amount" id="totalBalance">0.00</span>
+                    <span class="currency-code">USD</span>
+                </div>
+                <div class="balance-subtitle">≈ <span id="totalBalanceUSDT">0.00</span> USDT</div>
+            </div>
+
+            <div class="balance-card">
+                <h4>Available Balance</h4>
+                <div class="crypto-balance">
+                    <span class="amount" id="availableBalance">0.00</span>
+                    <span class="crypto">USDT</span>
+                </div>
+            </div>
+
+            <div class="balance-card">
+                <h4>24h P&L</h4>
+                <div class="pnl positive">
+                    <span class="amount">+298,547.82</span>
+                    <span class="crypto">USDT</span>
+                </div>
+            </div>
+        </div>
+
+
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button onclick="location.href='transfer.html'" class="action-btn primary">
+                    <i class="fas fa-money-bill-transfer"></i>
+                    <span>Withdraw</span>
+                </button>
+                <button onclick="location.href='transfer.html'" class="action-btn secondary">
+                    <i class="fas fa-exchange-alt"></i>
+                    <span>Transfer</span>
+                </button>
+                <button onclick="location.href='vip.html'" class="action-btn secondary">
+                    <i class="fas fa-crown"></i>
+                    <span>VIP Center</span>
+                </button>
+                <button onclick="showDeposit()" class="action-btn secondary">
+                    <i class="fas fa-plus-circle"></i>
+                    <span>Deposit</span>
+                </button>
+            </div>
+
+            <!-- Portfolio Chart -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Portfolio Performance</h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active">24H</button>
+                        <button class="chart-btn">7D</button>
+                        <button class="chart-btn">1M</button>
+                        <button class="chart-btn">1Y</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="portfolioChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Holdings & Recent Transactions -->
+            <div class="content-grid">
+                <div class="holdings-section">
+                    <h3>Holdings</h3>
+                    <div class="holdings-list">
+                        <div class="holding-item">
+                            <div class="crypto-info">
+                                <div class="crypto-icon usdt"></div>
+                                <div class="crypto-details">
+                                    <span class="crypto-name">Tether USD</span>
+                                    <span class="crypto-symbol">USDT</span>
+                                </div>
+                            </div>
+                            <div class="holding-amount">
+                                <span class="amount">2,688,332.66</span>
+                                <span class="value">$2,688,332.66</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transactions-section">
+                    <h3>Recent Activity</h3>
+                    <div class="transaction-list">
+                        <div class="transaction-item">
+                            <div class="transaction-icon deposit">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <span class="transaction-type">Deposit</span>
+                                <span class="transaction-date">2025-05-29 14:32</span>
+                            </div>
+                            <div class="transaction-amount positive">
+                                <span>+500,000 USDT</span>
+                            </div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-icon deposit">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <span class="transaction-type">Deposit</span>
+                                <span class="transaction-date">2025-05-28 09:15</span>
+                            </div>
+                            <div class="transaction-amount positive">
+                                <span>+1,200,000 USDT</span>
+                            </div>
+                        </div>
+                        
+                        <div class="transaction-item">
+                            <div class="transaction-icon deposit">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="transaction-details">
+                                <span class="transaction-type">Deposit</span>
+                                <span class="transaction-date">2025-05-27 16:48</span>
+                            </div>
+                            <div class="transaction-amount positive">
+                                <span>+988,332.66 USDT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="js/app.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer & Withdraw - CryptoVault Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>CryptoVault Pro</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <nav class="main-nav">
+                    <a href="dashboard.html" class="nav-item">Dashboard</a>
+                    <a href="markets.html" class="nav-item active">Markets</a>
+                    <a href="portfolio.html" class="nav-item">Portfolio</a>
+                    <a href="analytics.html" class="nav-item">Analytics</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="vip-badge" id="userVipBadge">VIP 5</div>
+                    <span class="username" id="currentUser">Brown68</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <a href="javascript:logout()" class="logout-btn">
+    <i class="fas fa-sign-out-alt"></i>
+</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Transfer & Withdraw</h1>
+                <p>Manage your USDT transfers and withdrawals securely</p>
+            </div>
+
+            <!-- Transfer Options -->
+            <div class="transfer-options-grid">
+                <div class="transfer-option-card" onclick="showInternalTransfer()">
+                    <div class="option-icon internal">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3>Internal Transfer</h3>
+                    <p>Transfer to another CryptoVault Pro user</p>
+                    <div class="option-benefits">
+                        <span class="benefit"><i class="fas fa-check"></i> Instant</span>
+                        <span class="benefit"><i class="fas fa-check"></i> No Fees</span>
+                        <span class="benefit"><i class="fas fa-check"></i> No Password Required</span>
+                    </div>
+                    <button class="option-btn">Select</button>
+                </div>
+
+                <div class="transfer-option-card" onclick="showExternalWithdraw()">
+                    <div class="option-icon external">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3>External Withdrawal</h3>
+                    <p>Withdraw to external wallet address</p>
+                    <div class="option-benefits">
+                        <span class="benefit"><i class="fas fa-clock"></i> 2-3 Hours</span>
+                        <span class="benefit"><i class="fas fa-shield-check"></i> Secure</span>
+                        <span class="benefit"><i class="fas fa-key"></i> Withdrawal Code Required</span>
+                    </div>
+                    <button class="option-btn">Select</button>
+                </div>
+            </div>
+
+            <!-- Internal Transfer Section -->
+<div id="internalTransferSection" class="transfer-section" style="display: none;">
+    <div class="section-header">
+        <div class="section-icon">
+            <i class="fas fa-exchange-alt"></i>
+        </div>
+        <div class="section-title">
+            <h2>Internal Transfer</h2>
+            <p>Transfer USDT to another CryptoVault Pro account instantly</p>
+        </div>
+    </div>
+
+    <div class="transfer-form-container">
+        <form id="internalTransferForm" class="premium-form">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Recipient Username</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="recipientUsername" placeholder="Enter recipient's username" required>
+                    </div>
+                    <small class="input-help">Enter the exact username of the CryptoVault Pro account holder</small>
+                </div>
+
+                <div class="input-group">
+                    <label>Transfer Amount</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-coins"></i>
+                        <input type="number" id="transferAmount" placeholder="0.00" step="0.01" required>
+                        <span class="currency-suffix">USDT</span>
+                    </div>
+                    <div class="balance-info">
+                        <span id="currentUserBalance">Available: 0.00 USDT</span>
+                        <button type="button" onclick="setMaxAmount()" class="max-btn">MAX</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Transfer Note (Optional)</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-comment"></i>
+                    <input type="text" id="transferNote" placeholder="Add a note for this transfer">
+                </div>
+            </div>
+
+            <div class="transfer-summary">
+                <div class="summary-card">
+                    <div class="summary-row">
+                        <span>Transfer Amount:</span>
+                        <span id="summaryAmount">0.00 USDT</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Transfer Fee:</span>
+                        <span class="free">FREE (VIP Benefit)</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="summaryTotal">0.00 USDT</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn primary">
+                <i class="fas fa-paper-plane"></i>
+                <span>Confirm Internal Transfer</span>
+            </button>
+        </form>
+    </div>
+</div>
+
+
+            <!-- External Withdrawal Section -->
+<div id="externalWithdrawSection" class="transfer-section" style="display: none;">
+    <div class="section-header">
+        <div class="section-icon">
+            <i class="fas fa-wallet"></i>
+        </div>
+        <div class="section-title">
+            <h2>External Withdrawal</h2>
+            <p>Withdraw USDT to your external wallet address</p>
+        </div>
+    </div>
+
+    <div class="transfer-form-container">
+        <!-- Withdrawal Limit Warning -->
+        <div id="withdrawLimitMessage" class="limit-warning" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <div>
+                <h4>No Funds Available</h4>
+                <p>No funds available for external withdrawal. Please receive funds via internal transfer first.</p>
+            </div>
+        </div>
+
+        <!-- VIP Upgrade Required Warning -->
+        <div id="vipUpgradeWarning" class="vip-warning" style="display: none;">
+            <i class="fas fa-crown"></i>
+            <div>
+                <h4>VIP Upgrade Required</h4>
+                <p>Your account requires VIP upgrade to process external withdrawals. Daily limits apply based on VIP level.</p>
+                <button onclick="location.href='vip.html'" class="upgrade-btn">
+                    <i class="fas fa-arrow-up"></i>
+                    <span>Upgrade Now</span>
+                </button>
+            </div>
+        </div>
+
+        <form id="externalWithdrawForm" class="premium-form">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Withdrawal Address</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-link"></i>
+                        <input type="text" id="withdrawAddress" placeholder="Enter USDT address (TRC20/ERC20)" required>
+                    </div>
+                    <small class="input-help">Ensure the address supports the selected network</small>
+                </div>
+
+                <div class="input-group">
+                    <label>Network</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-network-wired"></i>
+                        <select id="networkSelect" required>
+                            <option value="">Select Network</option>
+                            <option value="TRC20">TRC20 (TRON) - Fee: 1 USDT</option>
+                            <option value="ERC20">ERC20 (Ethereum) - Fee: 15 USDT</option>
+                            <option value="BEP20">BEP20 (BSC) - Fee: 0.5 USDT</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-grid">
+                <div class="input-group">
+                    <label>Withdrawal Amount</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-coins"></i>
+                        <input type="number" id="withdrawAmount" placeholder="0.00" step="0.01" required>
+                        <span class="currency-suffix">USDT</span>
+                    </div>
+                    <div class="balance-info">
+                        <span id="availableBalanceExternal" style="display: none;">Available: 0.00 USDT</span>
+                        <button type="button" onclick="setMaxWithdrawAmount()" class="max-btn" id="maxWithdrawBtn" style="display: none;">MAX</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Withdrawal Password</label>
+                    <div class="input-wrapper">
+                        <i class="fas fa-key"></i>
+                        <input type="password" id="withdrawPassword" placeholder="Enter withdrawal password" required>
+                    </div>
+                    <small class="input-help error">Required for external withdrawals</small>
+                </div>
+            </div>
+
+            <!-- Daily Limit Information -->
+            <div id="dailyLimitInfo" class="daily-limit-info" style="display: none;">
+                <h4>Daily Withdrawal Limits</h4>
+                <div class="limit-grid">
+                    <div class="limit-item">
+                        <span class="limit-level">VIP 0</span>
+                        <span class="limit-amount">$0 (Upgrade Required)</span>
+                    </div>
+                    <div class="limit-item">
+                        <span class="limit-level">VIP 1</span>
+                        <span class="limit-amount">$20</span>
+                    </div>
+                    <div class="limit-item">
+                        <span class="limit-level">VIP 2</span>
+                        <span class="limit-amount">$100</span>
+                    </div>
+                    <div class="limit-item">
+                        <span class="limit-level">VIP 3</span>
+                        <span class="limit-amount">$15,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transfer-summary">
+                <div class="summary-card">
+                    <div class="summary-row">
+                        <span>Withdrawal Amount:</span>
+                        <span id="withdrawSummaryAmount">0.00 USDT</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Network Fee:</span>
+                        <span id="networkFee">Select network</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>You will receive:</span>
+                        <span id="withdrawSummaryTotal">0.00 USDT</span>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn primary" id="withdrawSubmitBtn">
+                <i class="fas fa-shield-check"></i>
+                <span>Confirm External Withdrawal</span>
+            </button>
+        </form>
+
+        <div class="help-section">
+            <div class="help-card">
+                <i class="fas fa-question-circle"></i>
+                <div>
+                    <h4>Need Help?</h4>
+                    <p>Contact our support team for assistance with withdrawals or VIP upgrades.</p>
+                    <a href="https://t.me/cryptovault_support" class="help-link">Contact Support</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Success Modal -->
+    <div id="transferSuccessModal" class="modal" style="display: none;">
+        <div class="modal-content success">
+            <div class="modal-header">
+                <i class="fas fa-check-circle"></i>
+                <h3>Transfer Successful!</h3>
+            </div>
+            <div class="modal-body">
+                <p>Your transfer has been completed successfully.</p>
+                <div class="transfer-details">
+                    <div class="detail-row">
+                        <span>Recipient:</span>
+                        <span id="modalRecipient"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Amount:</span>
+                        <span id="modalAmount"></span>
+                    </div>
+                    <div class="detail-row">
+                        <span>Transaction ID:</span>
+                        <span id="modalTxId"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeTransferModal()" class="btn primary">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

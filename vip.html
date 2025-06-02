@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIP Center - CryptoVault Pro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>CryptoVault Pro</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <nav class="main-nav">
+                    <a href="dashboard.html" class="nav-item">Dashboard</a>
+                    <a href="markets.html" class="nav-item">Markets</a>
+                    <a href="portfolio.html" class="nav-item">Portfolio</a>
+                    <a href="analytics.html" class="nav-item">Analytics</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="vip-badge" id="userVipBadge">VIP 0</div>
+                    <span class="username" id="currentUser">Loading...</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <a href="javascript:logout()" class="logout-btn">
+    <i class="fas fa-sign-out-alt"></i>
+</a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- VIP 5 User Content (Brown68) -->
+            <div id="vip5Content" style="display: none;">
+                <div class="vip-status-hero">
+                    <div class="vip-status-card">
+                        <div class="vip-crown">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h1>VIP 5 - Ultimate Status</h1>
+                        <p class="vip-status-subtitle">You have achieved the highest VIP tier with exclusive benefits</p>
+                        
+                        <div class="current-benefits-grid">
+                            <div class="benefit-card">
+                                <i class="fas fa-infinity"></i>
+                                <h3>Unlimited Withdrawals</h3>
+                                <p>Daily limit: $2,000,000</p>
+                            </div>
+                            <div class="benefit-card">
+                                <i class="fas fa-headset"></i>
+                                <h3>Dedicated Support</h3>
+                                <p>24/7 priority assistance</p>
+                            </div>
+                            <div class="benefit-card">
+                                <i class="fas fa-chart-line"></i>
+                                <h3>Advanced Analytics</h3>
+                                <p>Professional trading tools</p>
+                            </div>
+                            <div class="benefit-card">
+                                <i class="fas fa-gift"></i>
+                                <h3>Exclusive Rewards</h3>
+                                <p>Special bonuses & events</p>
+                            </div>
+                        </div>
+                        
+                        <div class="vip-actions">
+                            <button class="contact-manager-btn">
+                                <i class="fas fa-user-tie"></i>
+                                <span>Contact VIP Manager</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Account Content (VIP 0) -->
+            <div id="newAccountContent">
+                <div class="vip-hero">
+                    <div class="vip-hero-content">
+                        <h1>Upgrade to VIP</h1>
+                        <p class="vip-subtitle">Unlock unlimited potential with our premium trading features</p>
+                        <div class="vip-benefits-preview">
+                            <div class="benefit-item">
+                                <i class="fas fa-infinity"></i>
+                                <span>Higher Withdrawal Limits</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-headset"></i>
+                                <span>Priority Support</span>
+                            </div>
+                            <div class="benefit-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Advanced Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vip-hero-visual">
+                        <div class="floating-card">
+                            <i class="fas fa-crown"></i>
+                            <span>VIP Status</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vip-plans-section">
+                    <div class="section-header-center">
+                        <h2>Choose Your VIP Level</h2>
+                        <p>Select the plan that best fits your trading needs</p>
+                    </div>
+
+                    <div class="vip-plans-grid">
+                        <div class="vip-plan-card level-1">
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h3>VIP 1</h3>
+                                <div class="plan-subtitle">Starter</div>
+                            </div>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">100</span>
+                                <span class="period">USDT</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Daily Limit: $20</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Basic Analytics</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Email Support</span>
+                                </div>
+                            </div>
+                            <button class="plan-btn" onclick="selectVIP(1, 100)">
+                                <span>Select VIP 1</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="vip-plan-card level-2">
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <h3>VIP 2</h3>
+                                <div class="plan-subtitle">Professional</div>
+                            </div>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">1,000</span>
+                                <span class="period">USDT</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Daily Limit: $100</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Advanced Analytics</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Priority Support</span>
+                                </div>
+                            </div>
+                            <button class="plan-btn" onclick="selectVIP(2, 1000)">
+                                <span>Select VIP 2</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="vip-plan-card level-3 popular">
+                            <div class="popular-badge">
+                                <i class="fas fa-fire"></i>
+                                <span>Most Popular</span>
+                            </div>
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h3>VIP 3</h3>
+                                <div class="plan-subtitle">Premium</div>
+                            </div>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">3,000</span>
+                                <span class="period">USDT</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Daily Limit: $15,000</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Premium Analytics</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>24/7 VIP Support</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Market Insights</span>
+                                </div>
+                            </div>
+                            <button class="plan-btn featured" onclick="selectVIP(3, 3000)">
+                                <span>Select VIP 3</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="vip-plan-card level-4">
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-diamond"></i>
+                                </div>
+                                <h3>VIP 4</h3>
+                                <div class="plan-subtitle">Elite</div>
+                            </div>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">5,000</span>
+                                <span class="period">USDT</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Daily Limit: $50,000</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Elite Analytics</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Dedicated Manager</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Exclusive Events</span>
+                                </div>
+                            </div>
+                            <button class="plan-btn" onclick="selectVIP(4, 5000)">
+                                <span>Select VIP 4</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                        <div class="vip-plan-card level-5">
+                            <div class="plan-header">
+                                <div class="plan-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <h3>VIP 5</h3>
+                                <div class="plan-subtitle">Ultimate</div>
+                            </div>
+                            <div class="plan-price">
+                                <span class="currency">$</span>
+                                <span class="amount">10,000</span>
+                                <span class="period">USDT</span>
+                            </div>
+                            <div class="plan-features">
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Daily Limit: $200,000</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Ultimate Analytics</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>White Glove Service</span>
+                                </div>
+                                <div class="feature">
+                                    <i class="fas fa-check"></i>
+                                    <span>Custom Solutions</span>
+                                </div>
+                            </div>
+                            <button class="plan-btn ultimate" onclick="selectVIP(5, 10000)">
+                                <span>Select VIP 5</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Section (Only for new accounts) -->
+<div id="paymentSection" class="payment-section" style="display: none;">
+    <div class="payment-container">
+        <div class="payment-header">
+            <h2>Complete Your VIP Upgrade</h2>
+            <p>Send the payment to activate your VIP benefits instantly</p>
+        </div>
+
+        <div class="payment-details">
+            <div class="payment-info">
+                <div class="payment-amount">
+                    <span>Payment Amount:</span>
+                    <div class="amount-display">
+                        <span id="paymentAmount">0</span> USDT
+                    </div>
+                </div>
+                
+                <div class="network-selection-section">
+                    <label>Select Payment Network:</label>
+                    <div class="network-grid">
+                        <div class="network-option" onclick="selectPaymentNetwork('ethereum')">
+                            <div class="network-icon ethereum">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="network-info">
+                                <h4>Ethereum</h4>
+                                <span>ERC20 • Gas: ~$5.50</span>
+                            </div>
+                            <div class="network-radio">
+                                <input type="radio" name="paymentNetwork" value="bsc" id="ethereum-radio">
+                            </div>
+                        </div>
+
+                        <div class="network-option active" onclick="selectPaymentNetwork('tron')">
+                            <div class="network-icon tron">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="network-info">
+                                <h4>Tron</h4>
+                                <span>TRC20 • Gas: ~$1</span>
+                            </div>
+                            <div class="network-radio">
+                                <input type="radio" name="paymentNetwork" value="tron" id="tron-radio" checked>
+                            </div>
+                        </div>
+
+                        <div class="network-option" onclick="selectPaymentNetwork('bsc')">
+                            <div class="network-icon bsc">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="network-info">
+                                <h4>BNB Smart Chain</h4>
+                                <span>BEP20 • Gas: ~$0.50</span>
+                            </div>
+                            <div class="network-radio">
+                                <input type="radio" name="paymentNetwork" value="bsc" id="bsc-radio">
+                            </div>
+                        </div>
+
+                        <div class="network-option" onclick="selectPaymentNetwork('solana')">
+                            <div class="network-icon solana">
+                                <i class="fas fa-sun"></i>
+                            </div>
+                            <div class="network-info">
+                                <h4>Solana</h4>
+                                <span>SPL • Gas: ~$0.001</span>
+                            </div>
+                            <div class="network-radio">
+                                <input type="radio" name="paymentNetwork" value="solana" id="solana-radio">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-address-section">
+                    <label>Send USDT to this address:</label>
+                    <div class="payment-address">
+                        <span class="address" id="paymentAddress">TUkWUSyL7WhdERZoVNau4cQUxM13pyFVPY</span>
+                        <button class="copy-btn" onclick="copyPaymentAddress()">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <small class="address-note" id="networkNote">TRON (TRC20) Network Only</small>
+                </div>
+
+                <div class="payment-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>Important:</strong> 
+                        <span id="warningText">Make sure you're sending USDT on the TRON network. Sending other tokens or using wrong networks will result in permanent loss of funds.</span>
+                    </div>
+                </div>
+
+                <div class="qr-code-section">
+                    <div class="qr-placeholder">
+                        <i class="fas fa-qrcode"></i>
+                        <span>QR Code for Mobile Wallet</span>
+                        <small id="qrNetworkInfo">TRON Network</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-actions">
+            <button class="confirm-payment-btn" onclick="confirmPayment()">
+                <i class="fas fa-check-circle"></i>
+                <span>I Have Sent Payment</span>
+            </button>
+            <button class="cancel-btn" onclick="cancelPayment()">
+                <span>Cancel</span>
+            </button>
+        </div>
+
+        <div class="payment-notes">
+            <div class="note-item">
+                <i class="fas fa-info-circle"></i>
+                <span>VIP benefits activate within 5-10 minutes after payment confirmation</span>
+            </div>
+            <div class="note-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>All payments are secured and verified on blockchain</span>
+            </div>
+            <div class="note-item">
+                <i class="fas fa-clock"></i>
+                <span>Payment processing time varies by network congestion</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="js/app.js"></script>
+</body>
+</html>
