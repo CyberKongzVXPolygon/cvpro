@@ -328,7 +328,7 @@ function updateUIVisibility(displaySettings) {
         if (portfolioOverview) {
             portfolioOverview.innerHTML = `
                 <div class="new-account-welcome">
-                    <h1>Welcome to CryptoVault Pro</h1>
+                    <h1>Welcome to AsiaCryp</h1>
                     <div class="total-value">
                         <span class="value-label">Total Portfolio Value</span>
                         <div class="value-amount">$0.00</div>
@@ -1610,7 +1610,7 @@ function updateUIVisibility(displaySettings) {
         if (portfolioOverview) {
             portfolioOverview.innerHTML = `
                 <div class="new-account-welcome">
-                    <h1>Welcome to CryptoVault Pro</h1>
+                    <h1>Welcome to AsiaCryp</h1>
                     <div class="total-value">
                         <span class="value-label">Total Portfolio Value</span>
                         <div class="value-amount">$0.00</div>
