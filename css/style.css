@@ -3477,3 +3477,60 @@ body {
     }
 }
 
+/* Telegram Chat Support Icon - Bottom Left */
+.telegram-chat-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* Changed from right to left */
+    z-index: 1000;
+    background: linear-gradient(135deg, #0088cc, #005f99);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.telegram-chat-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6);
+    background: linear-gradient(135deg, #0099dd, #0077bb);
+}
+
+.telegram-chat-icon i {
+    font-size: 28px;
+    color: white;
+}
+
+/* Pulse animation to attract attention */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.8);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+    }
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .telegram-chat-icon {
+        bottom: 15px;
+        left: 15px; /* Changed from right to left for mobile too */
+        width: 50px;
+        height: 50px;
+    }
+    
+    .telegram-chat-icon i {
+        font-size: 22px;
+    }
+}
