@@ -262,63 +262,70 @@ body {
     background: var(--background);
 }
 
-/* Fixed Header Alignment */
+/* FIXED Header Alignment - This is the key fix */
 .app-header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     padding: 0 24px;
     height: 70px;
     display: flex;
-    align-items: center; /* This centers all items vertically */
+    align-items: center !important;
     justify-content: space-between;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
+/* Force all header sections to align properly */
 .header-left,
 .header-center,
 .header-right {
     display: flex;
-    align-items: center; /* Vertically center content within each section */
-    height: 100%;
+    align-items: center !important;
+    height: 70px;
 }
 
+/* Fix logo alignment specifically */
 .header-left .logo {
-    display: flex;
-    align-items: center; /* Center logo icon and text */
+    display: flex !important;
+    align-items: center !important;
     gap: 12px;
     font-size: 20px;
     font-weight: 700;
     color: var(--text-primary);
-    line-height: 1; /* Remove extra line spacing */
+    line-height: 70px !important; /* Match header height */
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
+/* Fix logo icon alignment */
 .header-left .logo i {
-    font-size: 24px;
-    line-height: 1; /* Remove extra spacing from icon */
-    display: flex;
-    align-items: center;
+    font-size: 20px !important; /* Same size as text */
+    line-height: 70px !important; /* Match header height */
+    vertical-align: middle !important;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
+/* Fix navigation alignment */
 .main-nav {
     display: flex;
     gap: 32px;
-    align-items: center; /* Center nav items vertically */
-    height: 100%;
+    align-items: center !important;
+    height: 70px;
 }
 
 .nav-item {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 500;
-    padding: 8px 16px;
+    padding: 0 16px !important;
     border-radius: 8px;
     transition: all 0.3s;
-    display: flex;
-    align-items: center; /* Center text within nav item */
-    line-height: 1; /* Remove extra line spacing */
-    font-size: 16px; /* Ensure consistent font size */
+    line-height: 70px !important; /* Match header height */
+    font-size: 16px;
+    vertical-align: middle !important;
+    margin: 0 !important;
 }
 
 .nav-item:hover,
@@ -327,14 +334,14 @@ body {
     background: rgba(37, 99, 235, 0.1);
 }
 
+/* Fix user profile alignment */
 .user-profile {
-    display: flex;
-    align-items: center; /* Center profile elements */
+    display: flex !important;
+    align-items: center !important;
     gap: 16px;
-    height: 100%;
+    height: 70px;
 }
 
-/* Fix VIP badge alignment */
 .vip-badge {
     background: var(--vip-gradient);
     color: #000;
@@ -343,26 +350,22 @@ body {
     font-size: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    line-height: 1; /* Remove extra spacing */
-    display: flex;
-    align-items: center;
+    line-height: 1 !important;
+    vertical-align: middle !important;
 }
 
-/* Fix username alignment */
 .username {
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1; /* Remove extra spacing */
-    display: flex;
-    align-items: center;
+    line-height: 1 !important;
+    vertical-align: middle !important;
 }
 
 .user-avatar i {
     font-size: 32px;
     color: var(--text-secondary);
-    line-height: 1;
-    display: flex;
-    align-items: center;
+    line-height: 1 !important;
+    vertical-align: middle !important;
 }
 
 .logout-btn {
@@ -371,9 +374,8 @@ body {
     padding: 8px;
     border-radius: 6px;
     transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    line-height: 1;
+    line-height: 1 !important;
+    vertical-align: middle !important;
 }
 
 .logout-btn:hover {
@@ -2825,7 +2827,7 @@ body {
         overflow-y: auto;
     }
 
-    /* Fixed Header Layout */
+    /* FIXED Mobile Header Layout */
     .app-header {
         flex-direction: column !important;
         height: auto !important;
@@ -2847,12 +2849,16 @@ body {
 
     .header-left {
         flex: 0 0 auto;
+        display: flex;
+        align-items: center !important;
     }
 
     .header-left .logo {
         font-size: 18px !important;
         gap: 8px;
-        line-height: 1;
+        display: flex !important;
+        align-items: center !important;
+        line-height: 1 !important;
     }
 
     .header-left .logo span {
@@ -2860,27 +2866,29 @@ body {
     }
 
     .header-left .logo i {
-        font-size: 20px;
-        line-height: 1;
+        font-size: 20px !important;
+        line-height: 1 !important;
     }
 
     .header-right {
         flex: 0 0 auto;
+        display: flex;
+        align-items: center !important;
     }
 
     .user-profile {
-        display: flex;
-        align-items: center;
+        display: flex !important;
+        align-items: center !important;
         gap: 8px;
         font-size: 12px;
-        line-height: 1;
+        line-height: 1 !important;
     }
 
     .vip-badge {
         font-size: 10px;
         padding: 3px 8px;
         border-radius: 12px;
-        line-height: 1;
+        line-height: 1 !important;
     }
 
     .username {
@@ -2889,7 +2897,7 @@ body {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        line-height: 1;
+        line-height: 1 !important;
     }
 
     .user-avatar {
@@ -2899,13 +2907,15 @@ body {
     .logout-btn {
         font-size: 18px;
         padding: 6px;
-        line-height: 1;
+        line-height: 1 !important;
     }
 
     /* Bottom row: Navigation */
     .header-center {
         width: 100%;
         order: 2;
+        display: flex;
+        align-items: center;
     }
 
     .main-nav {
@@ -2927,7 +2937,7 @@ body {
         text-align: center;
         border-radius: 8px;
         transition: all 0.3s;
-        line-height: 1.2;
+        line-height: 1.2 !important;
         display: flex;
         align-items: center;
         justify-content: center;
