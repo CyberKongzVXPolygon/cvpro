@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit - AsiaCryp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-left">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>AsiaCryp</span>
+                </div>
+            </div>
+            <div class="header-center">
+                <nav class="main-nav">
+                    <a href="dashboard.html" class="nav-item">Dashboard</a>
+                    <a href="markets.html" class="nav-item">Markets</a>
+                    <a href="portfolio.html" class="nav-item">Portfolio</a>
+                    <a href="analytics.html" class="nav-item">Analytics</a>
+                    <a href="faq.html" class="nav-item">FAQ</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="user-profile">
+                    <div class="vip-badge" id="userVipBadge">VIP 0</div>
+                    <span class="username" id="currentUser">Loading...</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <a href="javascript:logout()" class="logout-btn" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h1>Deposit Funds</h1>
+                <p>Deposit USDT to your account using one of the supported blockchain networks</p>
+            </div>
+
+            <!-- Deposit Instructions -->
+            <div class="deposit-instructions">
+                <div class="instruction-card">
+                    <i class="fas fa-info-circle"></i>
+                    <div>
+                        <h3>How to Deposit</h3>
+                        <p>Send USDT to any of the wallet addresses below. Your balance will be updated automatically after network confirmation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wallet Cards Grid -->
+            <div class="deposit-wallets-grid">
+                <!-- Ethereum Wallet -->
+                <div class="wallet-card ethereum-card">
+                    <div class="wallet-header">
+                        <div class="wallet-icon-container ethereum">
+                            <i class="fab fa-ethereum"></i>
+                        </div>
+                        <div class="wallet-info">
+                            <h3>Ethereum</h3>
+                            <span class="network-type">ERC20 Network</span>
+                        </div>
+                        <div class="network-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-address-section">
+                        <label>Deposit Address:</label>
+                        <div class="address-container">
+                            <span class="wallet-address">0x7B48a1860917f3E03a65f8c210bBE7871Ab8D0a6</span>
+                            <button class="copy-btn" onclick="copyAddress('0x7B48a1860917f3E03a65f8c210bBE7871Ab8D0a6', 'Ethereum')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="wallet-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Balance</span>
+                            <span class="stat-value balance" id="eth-balance">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Received</span>
+                            <span class="stat-value received" id="eth-received">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Network Fee</span>
+                            <span class="stat-value fee">~$15</span>
+                        </div>
+                    </div>
+
+                    <div class="wallet-footer">
+                        <span class="confirmation-time">
+                            <i class="fas fa-clock"></i>
+                            12-36 confirmations (~3-9 minutes)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tron Wallet -->
+                <div class="wallet-card tron-card">
+                    <div class="wallet-header">
+                        <div class="wallet-icon-container tron">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="wallet-info">
+                            <h3>Tron</h3>
+                            <span class="network-type">TRC20 Network</span>
+                        </div>
+                        <div class="network-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-address-section">
+                        <label>Deposit Address:</label>
+                        <div class="address-container">
+                            <span class="wallet-address">TUkWUSyL7WhdERZoVNau4cQUxM13pyFVPY</span>
+                            <button class="copy-btn" onclick="copyAddress('TUkWUSyL7WhdERZoVNau4cQUxM13pyFVPY', 'Tron')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="wallet-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Balance</span>
+                            <span class="stat-value balance" id="tron-balance">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Received</span>
+                            <span class="stat-value received" id="tron-received">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Network Fee</span>
+                            <span class="stat-value fee">~$1</span>
+                        </div>
+                    </div>
+
+                    <div class="wallet-footer">
+                        <span class="confirmation-time">
+                            <i class="fas fa-clock"></i>
+                            20 confirmations (~1 minute)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- BSC Wallet -->
+                <div class="wallet-card bsc-card">
+                    <div class="wallet-header">
+                        <div class="wallet-icon-container bsc">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="wallet-info">
+                            <h3>BNB Smart Chain</h3>
+                            <span class="network-type">BEP20 Network</span>
+                        </div>
+                        <div class="network-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-address-section">
+                        <label>Deposit Address:</label>
+                        <div class="address-container">
+                            <span class="wallet-address">0x7B48a1860917f3E03a65f8c210bBE7871Ab8D0a6</span>
+                            <button class="copy-btn" onclick="copyAddress('0x7B48a1860917f3E03a65f8c210bBE7871Ab8D0a6', 'BSC')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="wallet-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Balance</span>
+                            <span class="stat-value balance" id="bsc-balance">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Received</span>
+                            <span class="stat-value received" id="bsc-received">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Network Fee</span>
+                            <span class="stat-value fee">~$0.50</span>
+                        </div>
+                    </div>
+
+                    <div class="wallet-footer">
+                        <span class="confirmation-time">
+                            <i class="fas fa-clock"></i>
+                            15 confirmations (~45 seconds)
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Solana Wallet -->
+                <div class="wallet-card solana-card">
+                    <div class="wallet-header">
+                        <div class="wallet-icon-container solana">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="wallet-info">
+                            <h3>Solana</h3>
+                            <span class="network-type">SPL Network</span>
+                        </div>
+                        <div class="network-status">
+                            <span class="status-dot active"></span>
+                            <span class="status-text">Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="wallet-address-section">
+                        <label>Deposit Address:</label>
+                        <div class="address-container">
+                            <span class="wallet-address">6y9F9hDH4rxbhx8HqUhfQR6oNs5nGALzvhLbr3KfjMSf</span>
+                            <button class="copy-btn" onclick="copyAddress('6y9F9hDH4rxbhx8HqUhfQR6oNs5nGALzvhLbr3KfjMSf', 'Solana')">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="wallet-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Balance</span>
+                            <span class="stat-value balance" id="solana-balance">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Total Received</span>
+                            <span class="stat-value received" id="solana-received">0.00 USDT</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Network Fee</span>
+                            <span class="stat-value fee">~$0.001</span>
+                        </div>
+                    </div>
+
+                    <div class="wallet-footer">
+                        <span class="confirmation-time">
+                            <i class="fas fa-clock"></i>
+                            32 confirmations (~13 seconds)
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Notice -->
+            <div class="security-notice">
+                <div class="notice-content">
+                    <i class="fas fa-shield-check"></i>
+                    <div>
+                        <h4>Security Notice</h4>
+                        <p>Only send USDT to these addresses. Sending other cryptocurrencies or using wrong networks will result in permanent loss of funds. Always verify the network type before sending.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Telegram Chat Support Icon -->
+    <a href="https://t.me/vipteamusdt" target="_blank" rel="noopener noreferrer" 
+       class="telegram-chat-icon" title="Chat with us on Telegram">
+      <i class="fab fa-telegram-plane"></i>
+    </a>
+
+    <script src="js/app.js"></script>
+    <script>
+        function copyAddress(address, network) {
+            navigator.clipboard.writeText(address).then(() => {
+                showSuccess(`${network} address copied to clipboard!`);
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = address;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showSuccess(`${network} address copied to clipboard!`);
+            });
+        }
+
+        // Simulate balance updates (for demo purposes)
+        function updateWalletBalances() {
+            const user = getCurrentUser();
+            if (user) {
+                // Update balances based on user's total balance
+                const totalBalance = user.balance;
+                
+                // Distribute balance across networks (for demo)
+                document.getElementById('eth-balance').textContent = (totalBalance * 0.4).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+                document.getElementById('tron-balance').textContent = (totalBalance * 0.3).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+                document.getElementById('bsc-balance').textContent = (totalBalance * 0.2).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+                document.getElementById('solana-balance').textContent = (totalBalance * 0.1).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+                
+                // Update received amounts
+                document.getElementById('eth-received').textContent = (totalBalance * 0.45).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+                document.getElementById('tron-received').textContent = (totalBalance * 0.35).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+                document.getElementById('bsc-received').textContent = (totalBalance * 0.25).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+                document.getElementById('solana-received').textContent = (totalBalance * 0.15).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' USDT';
+            }
+        }
+
+        function getCurrentUser() {
+            const username = localStorage.getItem('currentUser');
+            const accounts = JSON.parse(localStorage.getItem('userAccounts') || '{}');
+            return accounts[username] || null;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserData();
+            updateWalletBalances();
+        });
+    </script>
+</body>
+</html>
+
+<div class="gtranslate_wrapper"></div>
+<script>window.gtranslateSettings = {"default_language":"en","native_language_names":true,"detect_browser_language":true,"languages":["en","it","es","de","ar","iw","ru","ja","zh-CN","ko","fr"],"globe_color":"#66aaff","wrapper_selector":".gtranslate_wrapper","flag_size":24,"horizontal_position":"right","vertical_position":"bottom","alt_flags":{"en":"usa"},"globe_size":40}</script>
+<script src="https://cdn.gtranslate.net/widgets/latest/globe.js" defer></script>

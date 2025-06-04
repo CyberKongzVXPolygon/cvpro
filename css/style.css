@@ -3534,3 +3534,347 @@ body {
         font-size: 22px;
     }
 }
+
+
+/* Deposit Page Styles */
+.deposit-instructions {
+    margin-bottom: 32px;
+}
+
+.instruction-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.instruction-card i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.instruction-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.instruction-card p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Deposit Wallets Grid */
+.deposit-wallets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.wallet-card {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.wallet-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.ethereum-card:hover {
+    border-color: #627eea;
+    box-shadow: 0 12px 35px rgba(98, 126, 234, 0.15);
+}
+
+.tron-card:hover {
+    border-color: #ff060a;
+    box-shadow: 0 12px 35px rgba(255, 6, 10, 0.15);
+}
+
+.bsc-card:hover {
+    border-color: #f3ba2f;
+    box-shadow: 0 12px 35px rgba(243, 186, 47, 0.15);
+}
+
+.solana-card:hover {
+    border-color: #9945ff;
+    box-shadow: 0 12px 35px rgba(153, 69, 255, 0.15);
+}
+
+/* Wallet Header */
+.wallet-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.wallet-icon-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+}
+
+.wallet-icon-container.ethereum {
+    background: linear-gradient(135deg, #627eea, #4f6fdc);
+}
+
+.wallet-icon-container.tron {
+    background: linear-gradient(135deg, #ff060a, #e60408);
+}
+
+.wallet-icon-container.bsc {
+    background: linear-gradient(135deg, #f3ba2f, #e8a317);
+}
+
+.wallet-icon-container.solana {
+    background: linear-gradient(135deg, #9945ff, #7f39fb);
+}
+
+.wallet-info {
+    flex: 1;
+}
+
+.wallet-info h3 {
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.network-type {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.network-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--success-color);
+}
+
+.status-text {
+    font-size: 12px;
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+/* Wallet Address Section */
+.wallet-address-section {
+    margin-bottom: 20px;
+}
+
+.wallet-address-section label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.address-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.wallet-address {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--text-primary);
+    word-break: break-all;
+    font-weight: 600;
+}
+
+.copy-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 80px;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Wallet Stats */
+.wallet-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-value.balance {
+    color: var(--success-color);
+}
+
+.stat-value.received {
+    color: var(--primary-color);
+}
+
+.stat-value.fee {
+    color: var(--warning-color);
+}
+
+/* Wallet Footer */
+.wallet-footer {
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+}
+
+.confirmation-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.confirmation-time i {
+    color: var(--primary-color);
+}
+
+/* Security Notice */
+.security-notice {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 32px;
+}
+
+.notice-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.notice-content i {
+    font-size: 24px;
+    color: var(--danger-color);
+    margin-top: 2px;
+}
+
+.notice-content h4 {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.notice-content p {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .deposit-wallets-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .wallet-card {
+        padding: 20px;
+    }
+
+    .wallet-header {
+        gap: 12px;
+    }
+
+    .wallet-icon-container {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .wallet-info h3 {
+        font-size: 16px;
+    }
+
+    .wallet-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .address-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .copy-btn {
+        width: 100%;
+    }
+
+    .instruction-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .notice-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
