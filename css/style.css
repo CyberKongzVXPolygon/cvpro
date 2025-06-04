@@ -2810,7 +2810,7 @@ body {
 }
 
 /* Complete Mobile Responsive Fixes */
-/* Complete Mobile Responsive Fixes - ULTRA AGGRESSIVE NAVIGATION */
+/* Complete Mobile Responsive Fixes - Readable Navigation */
 @media (max-width: 768px) {
     /* Ensure body and html can scroll */
     html, body {
@@ -2920,7 +2920,7 @@ body {
         line-height: 1 !important;
     }
 
-    /* Navigation - ULTRA AGGRESSIVE FIX */
+    /* Navigation - READABLE FONT SIZES */
     .header-center {
         width: 100%;
         order: 2;
@@ -2929,15 +2929,15 @@ body {
         border-bottom: 1px solid var(--border);
         border-top: 1px solid var(--border);
         margin: 0 -15px;
-        padding: 0 2px;
+        padding: 0 8px;
         overflow: hidden;
     }
 
     .main-nav {
         display: flex;
         width: 100%;
-        padding: 3px 0px;
-        gap: 0px;
+        padding: 8px 2px;
+        gap: 2px;
         align-items: center;
         height: auto;
         overflow: hidden;
@@ -2946,20 +2946,20 @@ body {
 
     .main-nav .nav-item {
         flex: 1;
-        padding: 6px 1px;
-        font-size: 7px;
+        padding: 10px 2px;
+        font-size: 11px;
         text-align: center;
-        border-radius: 3px;
+        border-radius: 6px;
         transition: all 0.3s;
-        line-height: 1 !important;
+        line-height: 1.2 !important;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 26px;
+        min-height: 36px;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-width: calc(100% / 6);
+        max-width: calc(100% / 5);
     }
 
     .main-nav .nav-item.active {
@@ -3471,7 +3471,7 @@ body {
     }
 }
 
-/* Extra Small Mobile Devices - ULTRA AGGRESSIVE */
+/* For smaller screens but still readable */
 @media (max-width: 480px) {
     .header-left .logo {
         font-size: 14px !important;
@@ -3492,22 +3492,11 @@ body {
         padding: 2px 4px !important;
     }
 
-    .header-center {
-        padding: 0 1px;
-        margin: 0 -15px;
-    }
-
-    .main-nav {
-        padding: 3px 0px;
-        gap: 0px;
-    }
-
     .main-nav .nav-item {
-        font-size: 6px;
-        padding: 4px 0px;
-        min-height: 22px;
-        letter-spacing: -0.3px;
-        max-width: calc(100% / 6);
+        font-size: 10px;
+        padding: 8px 1px;
+        min-height: 32px;
+        max-width: calc(100% / 5);
     }
 
     .balance-amount .amount {
@@ -3533,17 +3522,12 @@ body {
     }
 }
 
-/* Ultra Small Screens - MAXIMUM COMPRESSION */
-@media (max-width: 400px) {
+/* Only for very small screens */
+@media (max-width: 380px) {
     .main-nav .nav-item {
-        font-size: 5px;
-        padding: 3px 0px;
-        min-height: 20px;
-        letter-spacing: -0.5px;
-    }
-
-    .header-center {
-        padding: 0 1px;
+        font-size: 9px;
+        padding: 6px 1px;
+        min-height: 28px;
     }
 }
 
