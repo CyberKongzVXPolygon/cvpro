@@ -2810,6 +2810,7 @@ body {
 }
 
 /* Complete Mobile Responsive Fixes */
+/* Complete Mobile Responsive Fixes - ULTRA AGGRESSIVE NAVIGATION */
 @media (max-width: 768px) {
     /* Ensure body and html can scroll */
     html, body {
@@ -2827,27 +2828,26 @@ body {
         overflow-y: auto;
     }
 
-/* Enhanced Mobile Header Layout - Logo Top, Navigation Separate */
-@media (max-width: 768px) {
+    /* Enhanced Mobile Header Layout - Fixed Menu Overflow */
     .app-header {
-        flex-direction: column !important; /* Back to column for separation */
+        flex-direction: column !important;
         height: auto !important;
-        padding: 8px 15px 0 15px; /* Remove bottom padding */
+        padding: 8px 15px 0 15px;
         gap: 0;
         position: sticky;
         top: 0;
         z-index: 1000;
         background: var(--surface);
-        border-bottom: none; /* Remove border, will be on navigation */
+        border-bottom: none;
     }
 
-    /* Top row: Logo and User Profile - KEEP THIS PART */
+    /* Top row: Logo and User Profile */
     .header-top-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        height: 50px; /* Fixed height for top row */
+        height: 50px;
         order: 1;
     }
 
@@ -2920,7 +2920,7 @@ body {
         line-height: 1 !important;
     }
 
-    /* Navigation - BACK TO NORMAL POSITION */
+    /* Navigation - ULTRA AGGRESSIVE FIX */
     .header-center {
         width: 100%;
         order: 2;
@@ -2928,31 +2928,38 @@ body {
         backdrop-filter: blur(10px);
         border-bottom: 1px solid var(--border);
         border-top: 1px solid var(--border);
-        margin: 0 -15px; /* Extend to full width */
-        padding: 0 15px;
+        margin: 0 -15px;
+        padding: 0 2px;
+        overflow: hidden;
     }
 
     .main-nav {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        display: flex;
         width: 100%;
-        padding: 6px 4px;
-        gap: 2px;
+        padding: 3px 0px;
+        gap: 0px;
         align-items: center;
         height: auto;
+        overflow: hidden;
+        justify-content: space-between;
     }
 
     .main-nav .nav-item {
-        padding: 8px 2px;
-        font-size: 10px;
+        flex: 1;
+        padding: 6px 1px;
+        font-size: 7px;
         text-align: center;
-        border-radius: 6px;
+        border-radius: 3px;
         transition: all 0.3s;
-        line-height: 1.2 !important;
+        line-height: 1 !important;
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 32px;
+        min-height: 26px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: calc(100% / 6);
     }
 
     .main-nav .nav-item.active {
@@ -2960,44 +2967,6 @@ body {
         color: white;
         font-weight: 600;
     }
-
-    /* Main content - normal spacing */
-    .main-content {
-        margin-top: 0;
-        padding: 20px 16px;
-        min-height: calc(100vh - 100px);
-        overflow-x: hidden;
-    }
-}
-
-/* Extra small devices */
-@media (max-width: 480px) {
-    .header-left .logo {
-        font-size: 14px !important;
-        gap: 4px !important;
-    }
-
-    .header-left .logo i {
-        font-size: 16px !important;
-    }
-
-    .username {
-        max-width: 50px;
-        font-size: 10px !important;
-    }
-
-    .vip-badge {
-        font-size: 8px !important;
-        padding: 2px 4px !important;
-    }
-
-    .main-nav .nav-item {
-        font-size: 9px;
-        min-height: 28px;
-        padding: 6px 2px;
-    }
-}
-
 
     /* Login/Register Page Fixes */
     .login-body {
@@ -3087,11 +3056,526 @@ body {
 
     /* Main Content Mobile Fixes */
     .main-content {
-        padding: 20px 16px;
         margin-top: 0;
-        min-height: calc(100vh - 120px);
+        padding: 20px 16px;
+        min-height: calc(100vh - 100px);
         overflow-x: hidden;
     }
+
+    /* Dashboard Mobile Fixes */
+    .balance-overview {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .balance-card {
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    .main-balance .balance-amount {
+        margin-bottom: 12px;
+    }
+
+    .balance-amount .amount {
+        font-size: 28px;
+    }
+
+    .quick-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .action-btn {
+        font-size: 14px;
+        padding: 14px 12px;
+        text-align: center;
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .action-btn i {
+        font-size: 18px;
+    }
+
+    .action-btn span {
+        font-size: 12px;
+    }
+
+    /* Content Grid */
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Transfer Page Mobile Fixes */
+    .transfer-options-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+
+    .transfer-option-card {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+
+    .option-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .transfer-option-card h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    /* Form Responsive */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .premium-form {
+        max-width: 100%;
+    }
+
+    /* Transfer Sections */
+    .transfer-section {
+        padding: 24px 16px;
+        margin-bottom: 24px;
+        border-radius: 12px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .section-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* Limit Warnings */
+    .limit-warning,
+    .vip-warning {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 16px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .limit-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .limit-item {
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    /* VIP Page Mobile */
+    .vip-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+        padding: 20px 0;
+    }
+
+    .vip-hero-content h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .vip-plans-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .vip-plan-card {
+        padding: 24px 16px;
+        border-radius: 12px;
+    }
+
+    .vip-plan-card.popular {
+        transform: none;
+        border-width: 2px;
+    }
+
+    .current-benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Network Selection Mobile */
+    .network-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .network-option {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .network-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .network-info h4 {
+        font-size: 14px;
+    }
+
+    .network-info span {
+        font-size: 12px;
+    }
+
+    /* Portfolio/Analytics Mobile */
+    .portfolio-overview {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .portfolio-actions {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .portfolio-allocation {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .charts-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .analytics-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .analytics-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .analytics-actions .action-btn {
+        width: 200px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    /* Market Page Mobile */
+    .market-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .table-controls {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .search-input,
+    .filter-select {
+        width: 100%;
+        font-size: 16px !important;
+    }
+
+    .market-table-container,
+    .transaction-table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 8px;
+    }
+
+    /* Deposit Page Mobile */
+    .deposit-wallets-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .wallet-card {
+        padding: 20px;
+    }
+
+    .wallet-header {
+        gap: 12px;
+    }
+
+    .wallet-icon-container {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .wallet-info h3 {
+        font-size: 16px;
+    }
+
+    .wallet-stats {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .address-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .copy-btn {
+        width: 100%;
+    }
+
+    .instruction-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    .notice-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+
+    /* Modal Mobile */
+    .modal {
+        padding: 20px 16px;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+    
+    .modal-content {
+        width: 100%;
+        max-width: 400px;
+        margin: 0;
+        max-height: 80vh;
+        overflow-y: auto;
+        border-radius: 12px;
+    }
+
+    .modal-footer {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    /* Payment Actions */
+    .payment-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .confirm-payment-btn,
+    .cancel-btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    .payment-address {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+        padding: 12px;
+    }
+
+    .payment-address .address {
+        word-break: break-all;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .copy-btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    /* FAQ Mobile */
+    .contact-options {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .faq-section {
+        padding: 20px 16px;
+        margin-bottom: 20px;
+    }
+
+    .faq-item {
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+    }
+
+    /* Notifications Mobile */
+    .error-notification,
+    .success-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        padding: 12px 16px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    /* Chart Containers */
+    .chart-container {
+        height: 200px;
+    }
+
+    .chart-container-small {
+        height: 180px;
+    }
+
+    /* Scrolling Performance */
+    * {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    /* Touch Actions */
+    .transfer-option-card,
+    .action-btn,
+    .nav-item,
+    .btn,
+    button {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+    }
+}
+
+/* Extra Small Mobile Devices - ULTRA AGGRESSIVE */
+@media (max-width: 480px) {
+    .header-left .logo {
+        font-size: 14px !important;
+        gap: 4px !important;
+    }
+
+    .header-left .logo i {
+        font-size: 16px !important;
+    }
+
+    .username {
+        max-width: 45px;
+        font-size: 10px !important;
+    }
+
+    .vip-badge {
+        font-size: 8px !important;
+        padding: 2px 4px !important;
+    }
+
+    .header-center {
+        padding: 0 1px;
+        margin: 0 -15px;
+    }
+
+    .main-nav {
+        padding: 3px 0px;
+        gap: 0px;
+    }
+
+    .main-nav .nav-item {
+        font-size: 6px;
+        padding: 4px 0px;
+        min-height: 22px;
+        letter-spacing: -0.3px;
+        max-width: calc(100% / 6);
+    }
+
+    .balance-amount .amount {
+        font-size: 24px;
+    }
+
+    .main-content {
+        padding: 16px 12px;
+    }
+
+    .login-left,
+    .login-right {
+        padding: 20px 16px;
+    }
+
+    .login-form-container h2 {
+        font-size: 20px;
+    }
+
+    .input-wrapper input,
+    .input-wrapper select {
+        padding: 14px 14px 14px 44px;
+    }
+}
+
+/* Ultra Small Screens - MAXIMUM COMPRESSION */
+@media (max-width: 400px) {
+    .main-nav .nav-item {
+        font-size: 5px;
+        padding: 3px 0px;
+        min-height: 20px;
+        letter-spacing: -0.5px;
+    }
+
+    .header-center {
+        padding: 0 1px;
+    }
+}
+
+/* Landscape Mobile Fixes */
+@media (max-width: 768px) and (orientation: landscape) {
+    .login-container {
+        flex-direction: row;
+    }
+
+    .login-left {
+        min-height: 100vh;
+        flex: 1;
+    }
+
+    .login-right {
+        flex: 1;
+        min-height: 100vh;
+    }
+
+    .app-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .main-content {
+        margin-top: 120px;
+    }
+}
+
 
     /* Dashboard Mobile Fixes */
     .balance-overview {
