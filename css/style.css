@@ -262,7 +262,7 @@ body {
     background: var(--background);
 }
 
-/* FIXED Header Alignment - This is the key fix */
+/* FIXED Header Alignment */
 .app-header {
     background: var(--surface);
     border-bottom: 1px solid var(--border);
@@ -276,7 +276,6 @@ body {
     z-index: 100;
 }
 
-/* Force all header sections to align properly */
 .header-left,
 .header-center,
 .header-right {
@@ -285,7 +284,6 @@ body {
     height: 70px;
 }
 
-/* Fix logo alignment specifically */
 .header-left .logo {
     display: flex !important;
     align-items: center !important;
@@ -293,21 +291,19 @@ body {
     font-size: 20px;
     font-weight: 700;
     color: var(--text-primary);
-    line-height: 70px !important; /* Match header height */
+    line-height: 70px !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-/* Fix logo icon alignment */
 .header-left .logo i {
-    font-size: 20px !important; /* Same size as text */
-    line-height: 70px !important; /* Match header height */
+    font-size: 20px !important;
+    line-height: 70px !important;
     vertical-align: middle !important;
     margin: 0 !important;
     padding: 0 !important;
 }
 
-/* Fix navigation alignment */
 .main-nav {
     display: flex;
     gap: 32px;
@@ -322,7 +318,7 @@ body {
     padding: 0 16px !important;
     border-radius: 8px;
     transition: all 0.3s;
-    line-height: 70px !important; /* Match header height */
+    line-height: 70px !important;
     font-size: 16px;
     vertical-align: middle !important;
     margin: 0 !important;
@@ -334,7 +330,6 @@ body {
     background: rgba(37, 99, 235, 0.1);
 }
 
-/* Fix user profile alignment */
 .user-profile {
     display: flex !important;
     align-items: center !important;
@@ -983,6 +978,306 @@ body {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
+}
+
+/* Deposit Page Styles - FIXED DESKTOP LAYOUT */
+.deposit-instructions {
+    margin-bottom: 32px;
+}
+
+.instruction-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.instruction-card i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.instruction-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    font-size: 18px;
+}
+
+.instruction-card p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* FIXED: Deposit Wallets Grid for Desktop */
+.deposit-wallets-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wallet-card {
+    background: var(--surface);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.wallet-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.ethereum-card:hover {
+    border-color: #627eea;
+    box-shadow: 0 12px 35px rgba(98, 126, 234, 0.15);
+}
+
+.tron-card:hover {
+    border-color: #ff060a;
+    box-shadow: 0 12px 35px rgba(255, 6, 10, 0.15);
+}
+
+.bsc-card:hover {
+    border-color: #f3ba2f;
+    box-shadow: 0 12px 35px rgba(243, 186, 47, 0.15);
+}
+
+.solana-card:hover {
+    border-color: #9945ff;
+    box-shadow: 0 12px 35px rgba(153, 69, 255, 0.15);
+}
+
+/* Wallet Header */
+.wallet-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.wallet-icon-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+}
+
+.wallet-icon-container.ethereum {
+    background: linear-gradient(135deg, #627eea, #4f6fdc);
+}
+
+.wallet-icon-container.tron {
+    background: linear-gradient(135deg, #ff060a, #e60408);
+}
+
+.wallet-icon-container.bsc {
+    background: linear-gradient(135deg, #f3ba2f, #e8a317);
+}
+
+.wallet-icon-container.solana {
+    background: linear-gradient(135deg, #9945ff, #7f39fb);
+}
+
+.wallet-info {
+    flex: 1;
+}
+
+.wallet-info h3 {
+    color: var(--text-primary);
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.network-type {
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.network-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--success-color);
+}
+
+.status-text {
+    font-size: 14px;
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+/* Wallet Address Section */
+.wallet-address-section {
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+.wallet-address-section label {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.address-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.wallet-address {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--text-primary);
+    word-break: break-all;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.copy-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 90px;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* Wallet Stats */
+.wallet-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-value.balance {
+    color: var(--success-color);
+}
+
+.stat-value.received {
+    color: var(--primary-color);
+}
+
+.stat-value.fee {
+    color: var(--warning-color);
+}
+
+/* Wallet Footer */
+.wallet-footer {
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+
+.confirmation-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.confirmation-time i {
+    color: var(--primary-color);
+}
+
+/* Security Notice */
+.security-notice {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--danger-color);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 32px;
+}
+
+.notice-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.notice-content i {
+    font-size: 24px;
+    color: var(--danger-color);
+    margin-top: 2px;
+}
+
+.notice-content h4 {
+    color: var(--text-primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.notice-content p {
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* Chart Section */
@@ -2809,7 +3104,49 @@ body {
     }
 }
 
-/* Complete Mobile Responsive Fixes */
+/* Telegram Chat Support Icon */
+.telegram-chat-icon {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: linear-gradient(135deg, #0088cc, #005f99);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.telegram-chat-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6);
+    background: linear-gradient(135deg, #0099dd, #0077bb);
+}
+
+.telegram-chat-icon i {
+    font-size: 28px;
+    color: white;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.8);
+    }
+    100% {
+        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
+    }
+}
+
 /* Complete Mobile Responsive Fixes - Readable Navigation */
 @media (max-width: 768px) {
     /* Ensure body and html can scroll */
@@ -2828,7 +3165,7 @@ body {
         overflow-y: auto;
     }
 
-    /* Enhanced Mobile Header Layout - Fixed Menu Overflow */
+    /* Enhanced Mobile Header Layout */
     .app-header {
         flex-direction: column !important;
         height: auto !important;
@@ -2959,7 +3296,7 @@ body {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-width: calc(100% / 5);
+        max-width: calc(100% / 6);
     }
 
     .main-nav .nav-item.active {
@@ -3318,6 +3655,7 @@ body {
 
     .wallet-card {
         padding: 20px;
+        min-height: auto;
     }
 
     .wallet-header {
@@ -3454,6 +3792,18 @@ body {
         height: 180px;
     }
 
+    /* Telegram Chat Icon Mobile */
+    .telegram-chat-icon {
+        bottom: 15px;
+        left: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .telegram-chat-icon i {
+        font-size: 22px;
+    }
+
     /* Scrolling Performance */
     * {
         -webkit-overflow-scrolling: touch;
@@ -3496,7 +3846,7 @@ body {
         font-size: 10px;
         padding: 8px 1px;
         min-height: 32px;
-        max-width: calc(100% / 5);
+        max-width: calc(100% / 6);
     }
 
     .balance-amount .amount {
@@ -3557,841 +3907,5 @@ body {
 
     .main-content {
         margin-top: 120px;
-    }
-}
-
-
-    /* Dashboard Mobile Fixes */
-    .balance-overview {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-bottom: 24px;
-    }
-
-    .balance-card {
-        padding: 20px;
-        border-radius: 12px;
-    }
-
-    .main-balance .balance-amount {
-        margin-bottom: 12px;
-    }
-
-    .balance-amount .amount {
-        font-size: 28px;
-    }
-
-    .quick-actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin-bottom: 24px;
-    }
-
-    .action-btn {
-        font-size: 14px;
-        padding: 14px 12px;
-        text-align: center;
-        border-radius: 8px;
-        flex-direction: column;
-        gap: 4px;
-    }
-
-    .action-btn i {
-        font-size: 18px;
-    }
-
-    .action-btn span {
-        font-size: 12px;
-    }
-
-    /* Content Grid */
-    .content-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* Transfer Page Mobile Fixes */
-    .transfer-options-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        margin-bottom: 32px;
-    }
-
-    .transfer-option-card {
-        padding: 24px 20px;
-        border-radius: 12px;
-    }
-
-    .option-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 24px;
-        margin-bottom: 16px;
-    }
-
-    .transfer-option-card h3 {
-        font-size: 20px;
-        margin-bottom: 8px;
-    }
-
-    /* Form Responsive */
-    .form-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .premium-form {
-        max-width: 100%;
-    }
-
-    /* Transfer Sections */
-    .transfer-section {
-        padding: 24px 16px;
-        margin-bottom: 24px;
-        border-radius: 12px;
-    }
-
-    .section-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-        margin-bottom: 24px;
-    }
-
-    .section-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-    }
-
-    /* Limit Warnings */
-    .limit-warning,
-    .vip-warning {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-        padding: 16px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-    }
-
-    .limit-grid {
-        grid-template-columns: 1fr;
-        gap: 8px;
-    }
-
-    .limit-item {
-        padding: 10px;
-        border-radius: 6px;
-    }
-
-    /* VIP Page Mobile */
-    .vip-hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 20px;
-        padding: 20px 0;
-    }
-
-    .vip-hero-content h1 {
-        font-size: 28px;
-        line-height: 1.2;
-    }
-
-    .vip-plans-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .vip-plan-card {
-        padding: 24px 16px;
-        border-radius: 12px;
-    }
-
-    .vip-plan-card.popular {
-        transform: none;
-        border-width: 2px;
-    }
-
-    .current-benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    /* Network Selection Mobile */
-    .network-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .network-option {
-        padding: 16px;
-        border-radius: 8px;
-    }
-
-    .network-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-
-    .network-info h4 {
-        font-size: 14px;
-    }
-
-    .network-info span {
-        font-size: 12px;
-    }
-
-    /* Portfolio/Analytics Mobile */
-    .portfolio-overview {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        text-align: center;
-    }
-
-    .portfolio-actions {
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .portfolio-allocation {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .charts-section {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .analytics-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .analytics-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .analytics-actions .action-btn {
-        width: 200px;
-    }
-
-    .metrics-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    /* Market Page Mobile */
-    .market-stats-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .table-controls {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .search-input,
-    .filter-select {
-        width: 100%;
-        font-size: 16px !important;
-    }
-
-    .market-table-container,
-    .transaction-table-container {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        border-radius: 8px;
-    }
-
-    /* Modal Mobile */
-    .modal {
-        padding: 20px 16px;
-        align-items: flex-start;
-        padding-top: 60px;
-    }
-    
-    .modal-content {
-        width: 100%;
-        max-width: 400px;
-        margin: 0;
-        max-height: 80vh;
-        overflow-y: auto;
-        border-radius: 12px;
-    }
-
-    .modal-footer {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 14px;
-        font-size: 16px;
-    }
-
-    /* Payment Actions */
-    .payment-actions {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .confirm-payment-btn,
-    .cancel-btn {
-        width: 100%;
-        padding: 16px;
-        font-size: 16px;
-    }
-
-    .payment-address {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-        padding: 12px;
-    }
-
-    .payment-address .address {
-        word-break: break-all;
-        font-size: 12px;
-        line-height: 1.4;
-    }
-
-    .copy-btn {
-        width: 100%;
-        padding: 12px;
-    }
-
-    /* FAQ Mobile */
-    .contact-options {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .faq-section {
-        padding: 20px 16px;
-        margin-bottom: 20px;
-    }
-
-    .faq-item {
-        margin-bottom: 24px;
-        padding-bottom: 16px;
-    }
-
-    /* Notifications Mobile */
-    .error-notification,
-    .success-notification {
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        padding: 12px 16px;
-        font-size: 14px;
-        border-radius: 8px;
-    }
-
-    /* Chart Containers */
-    .chart-container {
-        height: 200px;
-    }
-
-    .chart-container-small {
-        height: 180px;
-    }
-
-    /* Scrolling Performance */
-    * {
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-    }
-
-    /* Touch Actions */
-    .transfer-option-card,
-    .action-btn,
-    .nav-item,
-    .btn,
-    button {
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
-    }
-}
-
-/* Extra Small Mobile Devices */
-@media (max-width: 480px) {
-    .header-left .logo {
-        font-size: 16px !important;
-    }
-
-    .username {
-        max-width: 60px;
-        font-size: 11px;
-    }
-
-    .vip-badge {
-        font-size: 9px;
-        padding: 2px 6px;
-    }
-
-    .main-nav .nav-item {
-        font-size: 10px;
-        padding: 8px 2px;
-        min-height: 36px;
-    }
-
-    .balance-amount .amount {
-        font-size: 24px;
-    }
-
-    .main-content {
-        padding: 16px 12px;
-    }
-
-    .login-left,
-    .login-right {
-        padding: 20px 16px;
-    }
-
-    .login-form-container h2 {
-        font-size: 20px;
-    }
-
-    .input-wrapper input,
-    .input-wrapper select {
-        padding: 14px 14px 14px 44px;
-    }
-}
-
-/* Landscape Mobile Fixes */
-@media (max-width: 768px) and (orientation: landscape) {
-    .login-container {
-        flex-direction: row;
-    }
-
-    .login-left {
-        min-height: 100vh;
-        flex: 1;
-    }
-
-    .login-right {
-        flex: 1;
-        min-height: 100vh;
-    }
-
-    .app-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-    }
-
-    .main-content {
-        margin-top: 120px;
-    }
-}
-
-/* Telegram Chat Support Icon - Bottom Left */
-.telegram-chat-icon {
-    position: fixed;
-    bottom: 20px;
-    left: 20px; /* Changed from right to left */
-    z-index: 1000;
-    background: linear-gradient(135deg, #0088cc, #005f99);
-    color: white;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    animation: pulse 2s infinite;
-}
-
-.telegram-chat-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(0, 136, 204, 0.6);
-    background: linear-gradient(135deg, #0099dd, #0077bb);
-}
-
-.telegram-chat-icon i {
-    font-size: 28px;
-    color: white;
-}
-
-/* Pulse animation to attract attention */
-@keyframes pulse {
-    0% {
-        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
-    }
-    50% {
-        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.8);
-    }
-    100% {
-        box-shadow: 0 4px 20px rgba(0, 136, 204, 0.4);
-    }
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .telegram-chat-icon {
-        bottom: 15px;
-        left: 15px; /* Changed from right to left for mobile too */
-        width: 50px;
-        height: 50px;
-    }
-    
-    .telegram-chat-icon i {
-        font-size: 22px;
-    }
-}
-
-
-/* Deposit Page Styles */
-.deposit-instructions {
-    margin-bottom: 32px;
-}
-
-.instruction-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.instruction-card i {
-    font-size: 24px;
-    color: var(--primary-color);
-}
-
-.instruction-card h3 {
-    color: var(--text-primary);
-    margin-bottom: 4px;
-    font-size: 18px;
-}
-
-.instruction-card p {
-    color: var(--text-secondary);
-    margin: 0;
-}
-
-/* Deposit Wallets Grid */
-.deposit-wallets-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
-}
-
-.wallet-card {
-    background: var(--surface);
-    border: 2px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-    transition: all 0.3s;
-    position: relative;
-    overflow: hidden;
-}
-
-.wallet-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-}
-
-.ethereum-card:hover {
-    border-color: #627eea;
-    box-shadow: 0 12px 35px rgba(98, 126, 234, 0.15);
-}
-
-.tron-card:hover {
-    border-color: #ff060a;
-    box-shadow: 0 12px 35px rgba(255, 6, 10, 0.15);
-}
-
-.bsc-card:hover {
-    border-color: #f3ba2f;
-    box-shadow: 0 12px 35px rgba(243, 186, 47, 0.15);
-}
-
-.solana-card:hover {
-    border-color: #9945ff;
-    box-shadow: 0 12px 35px rgba(153, 69, 255, 0.15);
-}
-
-/* Wallet Header */
-.wallet-header {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-}
-
-.wallet-icon-container {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 24px;
-}
-
-.wallet-icon-container.ethereum {
-    background: linear-gradient(135deg, #627eea, #4f6fdc);
-}
-
-.wallet-icon-container.tron {
-    background: linear-gradient(135deg, #ff060a, #e60408);
-}
-
-.wallet-icon-container.bsc {
-    background: linear-gradient(135deg, #f3ba2f, #e8a317);
-}
-
-.wallet-icon-container.solana {
-    background: linear-gradient(135deg, #9945ff, #7f39fb);
-}
-
-.wallet-info {
-    flex: 1;
-}
-
-.wallet-info h3 {
-    color: var(--text-primary);
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-.network-type {
-    color: var(--text-secondary);
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.network-status {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.status-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--success-color);
-}
-
-.status-text {
-    font-size: 12px;
-    color: var(--success-color);
-    font-weight: 600;
-}
-
-/* Wallet Address Section */
-.wallet-address-section {
-    margin-bottom: 20px;
-}
-
-.wallet-address-section label {
-    display: block;
-    color: var(--text-secondary);
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.address-container {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--background);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 12px;
-}
-
-.wallet-address {
-    flex: 1;
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-    color: var(--text-primary);
-    word-break: break-all;
-    font-weight: 600;
-}
-
-.copy-btn {
-    background: var(--primary-color);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 12px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    min-width: 80px;
-    justify-content: center;
-}
-
-.copy-btn:hover {
-    background: var(--primary-dark);
-    transform: scale(1.05);
-}
-
-/* Wallet Stats */
-.wallet-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 20px;
-}
-
-.stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.stat-label {
-    font-size: 12px;
-    color: var(--text-secondary);
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.stat-value {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-primary);
-}
-
-.stat-value.balance {
-    color: var(--success-color);
-}
-
-.stat-value.received {
-    color: var(--primary-color);
-}
-
-.stat-value.fee {
-    color: var(--warning-color);
-}
-
-/* Wallet Footer */
-.wallet-footer {
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-}
-
-.confirmation-time {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--text-secondary);
-}
-
-.confirmation-time i {
-    color: var(--primary-color);
-}
-
-/* Security Notice */
-.security-notice {
-    background: rgba(239, 68, 68, 0.1);
-    border: 1px solid var(--danger-color);
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 32px;
-}
-
-.notice-content {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-}
-
-.notice-content i {
-    font-size: 24px;
-    color: var(--danger-color);
-    margin-top: 2px;
-}
-
-.notice-content h4 {
-    color: var(--text-primary);
-    font-weight: 700;
-    margin-bottom: 8px;
-}
-
-.notice-content p {
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.5;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .deposit-wallets-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .wallet-card {
-        padding: 20px;
-    }
-
-    .wallet-header {
-        gap: 12px;
-    }
-
-    .wallet-icon-container {
-        width: 40px;
-        height: 40px;
-        font-size: 20px;
-    }
-
-    .wallet-info h3 {
-        font-size: 16px;
-    }
-
-    .wallet-stats {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    .address-container {
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .copy-btn {
-        width: 100%;
-    }
-
-    .instruction-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-    }
-
-    .notice-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
     }
 }
