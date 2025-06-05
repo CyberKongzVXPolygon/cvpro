@@ -6,6 +6,92 @@
     <title>AsiaCryp - Secure Digital Asset Trading</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+(function() {
+    // Countries to block (ISO 3166-1 Alpha-2 codes)
+    var blockedCountries = {
+        'US': true,  // United States
+        'CN': true,  // China (optional)
+        'RU': true,  // Russia (optional)
+        'IR': true   // Iran (optional)
+    };
+    
+    // Custom redirect page or message
+    function showBlockedMessage(countryName) {
+        document.body.innerHTML = `
+            <div style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background: #0f172a;
+                color: #f8fafc;
+                font-family: Arial, sans-serif;
+                text-align: center;
+                padding: 20px;
+            ">
+                <div style="
+                    background: #1e293b;
+                    border: 1px solid #374151;
+                    border-radius: 16px;
+                    padding: 40px;
+                    max-width: 500px;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+                ">
+                    <div style="
+                        width: 80px;
+                        height: 80px;
+                        background: #ef4444;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 20px;
+                        font-size: 40px;
+                    ">🚫</div>
+                    <h1 style="color: #ef4444; margin-bottom: 16px;">Access Restricted</h1>
+                    <h2 style="color: #f8fafc; margin-bottom: 20px;">Sorry, ${countryName} is Restricted</h2>
+                    <p style="color: #cbd5e1; margin-bottom: 30px; line-height: 1.6;">
+                        Due to regulatory compliance and legal requirements, 
+                        access to this platform is not available in your country.
+                    </p>
+                    <div style="
+                        background: #374151;
+                        border-radius: 8px;
+                        padding: 16px;
+                        margin-bottom: 20px;
+                    ">
+                        <p style="color: #9ca3af; font-size: 14px; margin: 0;">
+                            <strong>Country:</strong> ${countryName}<br>
+                            <strong>Restriction:</strong> Platform access blocked
+                        </p>
+                    </div>
+                    <p style="color: #6b7280; font-size: 12px; margin: 0;">
+                        If you believe this is an error, please contact our support team.
+                    </p>
+                </div>
+            </div>
+        `;
+    }
+    
+    // Check user's country using IP geolocation
+    fetch('https://ipapi.co/json/')
+        .then(response => response.json())
+        .then(data => {
+            var countryCode = data.country_code;
+            var countryName = data.country_name;
+            
+            if (blockedCountries[countryCode]) {
+                showBlockedMessage(countryName);
+            }
+        })
+        .catch(error => {
+            console.log('Geolocation check failed:', error);
+            // Allow access if geolocation fails
+        });
+})();
+</script>
+
     <script
     src="https://app.rybbit.io/api/script.js"
     data-site-id="911"
